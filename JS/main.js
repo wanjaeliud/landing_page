@@ -51,7 +51,7 @@ const sectionActivation = () => {
   sections.forEach((section) => {
     const elementOffset = offset(section);
 
-    inviewport = () => elementOffset < 200 && elementOffset >= -200;
+    let inviewport = () => elementOffset < 200 && elementOffset >= -200;
 
     removeActive(section);
     addActive(inviewport(), section);
@@ -65,7 +65,7 @@ const scrolling = () => {
   const links = document.querySelectorAll(".navbar__menu a");
   links.forEach((link) => {
     link.addEventListener("click", () => {
-      for (i = 0; i < sections; i++) {
+      for (let i = 0; i < sections; i++) {
         section[i].addEventListener("click", sectionScroll(link));
       }
     });
